@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>create-event</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" fullscreen>
+  <form [formGroup]="createEventForm" (submit)="addEvents()" novalidate>
+
+    <ion-item>
+      <ion-label position="stacked">Event Title</ion-label>
+      <ion-input formControlName="title" type="text" placeholder="What is the event name?"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Event description</ion-label>
+      <ion-textarea formControlName="description"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Image</ion-label>
+      <ion-input formControlName="img" type="" placeholder="Paste the URL of your image here"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime formControlName="date" displayFormat="DD MM YY" placeholder="Select date"></ion-datetime>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" class="ion-padding">Save</ion-button>
+
+  </form>
+  
+  <ion-fab slot="fixed" horizontal="end" vertical="bottom">
+    <ion-fab-button color="danger" (click)="deleteEvent(eventId)"><ion-icon name="trash-outline"></ion-icon></ion-fab-button>
+  </ion-fab>
+</ion-content>
+
+
+
+
+
+
+

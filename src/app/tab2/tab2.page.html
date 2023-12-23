@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lecturers</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list *ngFor='let lecturer of newLecturers' lines="none">
+    <ion-item >
+      <h3> {{lecturer.firstName}} {{lecturer.lastName }} </h3>      
+      <br>
+    </ion-item>
+    <ion-item id="email">
+      {{ lecturer.email}}
+    </ion-item>
+  </ion-list>
+</ion-content>

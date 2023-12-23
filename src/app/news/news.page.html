@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>news</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+  <ion-content class="ion-padding">
+    
+    <ion-card class="cardStyle">
+      <div id="firstText">
+        <ion-label id="firstText" slot="end">Todays Report: {{todayDate | date: "dd MMM YYYY"}}</ion-label>
+      </div>
+
+      <div lines="none" >
+        <ion-icon id="locationIcon" slot="start" name="location" size="large"></ion-icon>
+        <span id="cityName">{{cityName}}</span><span id="temp">{{(weatherTemp?.temp - 273.15).toFixed(0)}}&deg;</span>
+      </div>
+
+      <div lines="none">
+        
+        <img id="img" slot="end" [src]=weatherIcon>
+      </div>
+    </ion-card>
+  
+      <ion-card>
+        <div lines="none" class="ion-padding">
+          <span>
+            Maximum Temp
+          </span>
+          <span slot="end">{{(weatherTemp.temp_max - 273.15).toFixed(0)}}</span>
+        </div>
+  
+        <div class="ion-padding" >
+          <span>
+            Minimum Temp
+          </span>
+          <span slot="end">{{(weatherTemp.temp_min - 273.15).toFixed(0)}}</span>
+        </div>
+  
+        <div class="ion-padding">
+          <span>
+            Humidity
+          </span>
+          <span slot="end"> {{weatherTemp.humidity}} %</span>
+        </div>
+      </ion-card>
+  
+      <ion-card *ngFor="let article of articles">
+        <a href="{{article.url}}">
+        <ion-img [src]="article.urlToImage"></ion-img>
+        <ion-card-title class="ion-padding">{{article.title}}</ion-card-title>
+        <ion-card-subtitle class="ion-padding">{{article.publishedAt | date}}</ion-card-subtitle>
+      </a>
+      </ion-card>
+  </ion-content>
+

@@ -1,0 +1,15 @@
+<ion-content [fullscreen]="false">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title>Modules</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  <div id="map" style="height: 250px;" width="100%"></div>
+    <ion-list *ngFor="let module of newModules">
+      <ion-item>
+        <ion-label>{{ module.moduleName }} Credits: {{ module.credits }} {{module.location}}</ion-label>
+      </ion-item>
+    </ion-list>
+</ion-content>

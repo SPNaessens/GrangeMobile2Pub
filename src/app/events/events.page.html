@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Events</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-item *ngFor="let event of Events" routerLink="/create-event/{{event.id}}">
+  <ion-card>
+    <ion-card-header>
+      <ion-img src="{{event.img}}" ></ion-img>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-card-title>{{event.title}}</ion-card-title>
+      <h2>{{event.date | date}}</h2>
+      <p> {{event.description}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-item>
+
+<ion-fab slot="fixed" horizontal="end" vertical="bottom">
+  <ion-fab-button routerLink="/create-event/new"><ion-icon name="add-outline"></ion-icon></ion-fab-button>
+</ion-fab>
+</ion-content>
